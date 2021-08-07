@@ -48,3 +48,5 @@ let myElectronics: [Electronics] = [myBlender, myTV, myWashingMachine]
 for electronicUnit in myElectronics {
     print(electronicUnit.turnOn())
 }
+
+
