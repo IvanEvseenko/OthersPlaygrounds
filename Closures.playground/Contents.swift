@@ -119,12 +119,6 @@ let result2 = filter1(array: numbers) {
 }
 result2
 
-//////////////////////////////////////
-let stroka = "Hello! How are you? Today is August 26."
-var charaktersArray : [Character] = []
-for i in stroka {
-    charaktersArray.append(i)
-}
 
 
 ///////////// sorted method apple's guide
@@ -135,5 +129,35 @@ func backward (_ s1: String, _ s2: String) -> Bool {
 }
 
 let sortedArray = names.sorted(by: backward)
+let sortedArrayReversed = names.sorted() {$0 < $1}
+sortedArrayReversed
 
+
+//////////////////////////////////////  Создайте произвольную строку. Преобразуйте ее в массив букв. Используя метод массивов sorted отсортируйте строку так, чтобы вначале шли гласные в алфавитном порядке, потом согласные, потом цифры, а потом символы
+
+let stroka = "Hello! How are you? I'm 30 years old."
+var myArray : [String] = []
+for i in stroka {
+    myArray.append(String(i))
+}
+myArray
+
+func priority(_ string: String) -> Int {
+    switch string.lowercased() {
+    case "a", "e", "i", "o", "u","y": return 0
+    case "a"..."z": return 1
+    case "0"..."9": return 2
+    default : return 3
+    }
+}
+
+func compareForSorted(a: String, b: String) -> Bool {
+    switch (priority(a),priority(b)) {
+    case let(x,y) where x < y: return true
+    case let(x,y) where x > y: return false
+    default: return a.lowercased() <= b.lowercased()
+}
+}
+
+    var sorted = myArray.sorted(by: compareForSorted)
 
