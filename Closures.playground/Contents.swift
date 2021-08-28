@@ -3,6 +3,7 @@ import UIKit
 let numbers = [11,4,3,5,6,3,50,7,10,33,20]
 
 
+
 func nonOdd(i: Int) -> Bool {
     return i % 2 == 0
 }
@@ -160,4 +161,18 @@ func compareForSorted(a: String, b: String) -> Bool {
 }
 
     var sorted = myArray.sorted(by: compareForSorted)
+
+///////////////// Захват значений
+func makeIncrement(on: Int) -> () -> Int {
+    var result = 0
+    func incrementer() -> Int {
+        result += on
+        return result
+    }
+    return incrementer
+}
+
+let experiment = makeIncrement(on: 10)
+experiment()
+experiment()
 
