@@ -25,7 +25,8 @@ func printStudents(_ array: [Student]) {
 }
 
 printStudents(students)
-
+print("++++++++++++++++++++++++++++++++++++++++++++++++")
 //3. С помощью функции sorted отсортируйте массив по среднему баллу, по убыванию и распечатайте “журнал”.
 let sortedStudents = students.sorted() {$0.averageScore > $1.averageScore}
 sortedStudents
+printStudents(sortedStudents)
